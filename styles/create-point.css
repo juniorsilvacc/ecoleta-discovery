@@ -84,3 +84,21 @@ form label{
 form .field-group .field + .field{
     margin-left: 24px;
 }
+
+form button{
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    border: 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFF;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: background-color 400ms;
+}
+
+form button:hover{
+    background-color: #2fb86e;
+}
