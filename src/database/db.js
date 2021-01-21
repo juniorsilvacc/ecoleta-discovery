@@ -5,61 +5,81 @@ const sqlite3 = require("sqlite3")
 // Criar o objeto que irá fazer operações no banco de dados
 const db = new sqlite3.Database("./src/database/database.db")
 
+module.exports = db
+
 // Utilizar o objeto de banco de dados para nossas operações
 db.serialize(() => {
     // com comandos sql eu vou:
 
     // 1 Criar uma tabela 
-    db.run(`
-        CREATE TABLE IF NOT EXISTS places (
-            id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            name TEXT,
-            image TEXT,
-            address TEXT,
-            address2 TEXT,
-            state TEXT,
-            city TEXT,
-            items TEXT
-        );
-    `)
+    // db.run(`
+    //     CREATE TABLE IF NOT EXISTS places (
+    //         id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    //         name TEXT,
+    //         image TEXT,
+    //         address TEXT,
+    //         address2 TEXT,
+    //         state TEXT,
+    //         city TEXT,
+    //         items TEXT
+    //     );
+    // `)
 
-    // 2 Inserir dados na tabela
-    const query = `
-            INSERT INTO places (
-                name,
-                image,
-                address,
-                address2,
-                state,
-                city,
-                items
-            ) VALUES (
-                ?, ?, ?, ?, ?, ?, ?
-            );
-        `
+//     // 2 Inserir dados na tabela
+    // const query = `
+    //         INSERT INTO places (
+    //             name,
+    //             image,
+    //             address,
+    //             address2,
+    //             state,
+    //             city,
+    //             items
+    //         ) VALUES (
+    //             ?, ?, ?, ?, ?, ?, ?
+    //         );
+    //     `
 
-    const values = [
-        "https://images.unsplash.com/photo-1528323273322-d81458248d40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1602&q=80",
-        "Colectoria",
-        "Guilherme Gemballa, Jardim América",
-        "Nº 260",
-        "Santa Catarina",
-        "Rio do Sul",
-        "Resíduos Eletrônicos, Lâmpadas"
-    ]
+    // const values = [
+    //     "https://images.unsplash.com/photo-1567393528677-d6adae7d4a0a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+    //     "Pepersider",
+    //     "Guilherme Gemballa, Jardim América",
+    //     "Nº 260",
+    //     "Santa Catarina",
+    //     "Rio do Sul",
+    //     "Papéis e Papelão"
+    // ]
 
-    function afterInserDate(err){
-        if(err){
-            return console.log(err)
-        }
-            console.log("Cadastrado com sucesso")
-            console.log(this)
-    }
+    // function afterInserDate(err){
+    //     if(err){
+    //         return console.log(err)
+    //     }
+    //         console.log("Cadastrado com sucesso")
+    //         console.log(this)
+    // }
 
-    db.run(query, values, afterInserDate)
+    // db.run(query, values, afterInserDate)
 
-    // 3 Consultar os dados da tabela
+//     // 3 Consultar os dados da tabela
+    // db.all(`SELECT name FROM places`, function(err, rows) {
+    //     if(err){
+    //         return console.log(err)
+    //     }
 
-    // 4 Deletar um dado da tabela
+    //         console.log("Aqui estão seus registros")
+    //         console.log(rows)
+
+    // })
+
+
+
+//     // 4 Deletar um dado da tabela
+    // db.run(`DELETE FROM places WHERE id = ?`, [1], function(err){
+    //     if(err){
+    //         return console.log(err)
+    //     }
+
+    //         console.log("Registro deletado com sucesso")
+    // })
 
 })

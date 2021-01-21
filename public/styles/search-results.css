@@ -58,7 +58,7 @@ main .card h1{
 main .card h3{
     font-size: 24px;
     font-family: Roboto, sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--primary-color);
     line-height: 34px;
     margin: 24px 0;
